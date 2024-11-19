@@ -21,7 +21,11 @@ def say2():
 
 @app.route("/procForm", methods=["POST"])
 def processPost():
-    msg = request.form["msg"]
+    val = request.form["msg"]
+    if val == "こんにちは":
+        msg = "はい，こんにちは"
+    else:
+        msg = "あなたのメッセージは「" + val + "」です。"
     return render_template("result.html", message=msg)
 
 
